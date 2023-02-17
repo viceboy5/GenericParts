@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: HandWRig.ma
-//Last modified: Fri, Feb 17, 2023 02:03:46 PM
+//Last modified: Fri, Feb 17, 2023 03:58:41 PM
 //Codeset: 1252
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.1.1";
@@ -10,22 +10,22 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22623)";
-fileInfo "UUID" "EA337B64-4284-3A2F-1B08-368E373F0E4B";
+fileInfo "UUID" "1C523DF4-4047-03B9-E033-F6AD06EC7203";
 createNode transform -s -n "persp";
 	rename -uid "F3720B57-404C-E5F5-601B-569DC49C1DC1";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 17.906210138474648 10.151342750186346 21.435865664257847 ;
-	setAttr ".r" -type "double3" -34.20000000001815 17.599999999999987 8.3418637763939992e-16 ;
-	setAttr ".rpt" -type "double3" -8.4867093040291418e-17 -9.7205258489165194e-16 -5.0950367095968549e-15 ;
+	setAttr ".t" -type "double3" 46.995249993069088 -6.6349044958023615 -9.4812355391791652 ;
+	setAttr ".r" -type "double3" 3.5999999999999797 -619.60000000042419 0 ;
+	setAttr ".rpt" -type "double3" -8.3274448845221978e-17 -9.7205258489165194e-16 -5.1038010064144596e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "A3BC9E85-47D9-0BED-AFDC-DDA379FF41AD";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 22.589623958988625;
+	setAttr ".coi" 46.109194983514868;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 9.2400833419653754 -1.384926119504033 3.4742927551269527 ;
+	setAttr ".tp" -type "double3" -1.301403091396218 -2.696622387384624 0.87783158515077364 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "52A3E6D3-4783-E763-91A4-5EA57682E08F";
@@ -80,7 +80,6 @@ createNode camera -s -n "sideShape" -p "side";
 createNode transform -n "finger_01_knuckle_01_geo";
 	rename -uid "332C85D4-47FF-2801-4F4B-528C5C481044";
 	addAttr -is true -ci true -k true -sn "currentUVSet" -ln "currentUVSet" -dt "string";
-	setAttr ".v" no;
 	setAttr ".rp" -type "double3" -2.4173843482507298 -1.9593382486646178 2.833610484167167 ;
 	setAttr ".sp" -type "double3" -2.4173843482507298 -1.9593382486646178 2.833610484167167 ;
 	setAttr -k on ".currentUVSet" -type "string" "map1";
@@ -181,6 +180,29 @@ createNode mesh -n "finger_01_knuckle_03_geoShapeOrig" -p "finger_01_knuckle_03_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_01_knuckle_03_geo_parentConstraint1" -p "finger_01_knuckle_03_geo";
+	rename -uid "4546BD31-4098-46F0-DD5C-75BEEAECF44D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_01_knuckle_03_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -2.8826574149931616e-07 -4.7697090810316922e-07 
+		2.8985911892931426e-08 ;
+	setAttr ".tg[0].tor" -type "double3" 9.7862753094345987 -0.1326332621229793 2.3955764430978594 ;
+	setAttr ".lr" -type "double3" -1.5902773407317584e-15 6.2617170291312985e-15 -1.5902773407317584e-15 ;
+	setAttr ".rst" -type "double3" 0 -8.8817841970012523e-16 -2.2204460492503131e-16 ;
+	setAttr ".rsrr" -type "double3" -1.5902773407317584e-15 6.2617170291312985e-15 -1.5902773407317584e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_01_knuckle_02_geoShapeOrig" -p "finger_01_knuckle_02_geo";
 	rename -uid "6100300A-4604-4661-966F-CB94BCE67BD6";
 	setAttr -k off ".v";
@@ -230,6 +252,29 @@ createNode mesh -n "finger_01_knuckle_02_geoShapeOrig" -p "finger_01_knuckle_02_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_01_knuckle_02_geo_parentConstraint1" -p "finger_01_knuckle_02_geo";
+	rename -uid "080F2160-451F-B50F-0B13-0FB8290D683E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_01_knuckle_02_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -1.3562103101660838e-07 3.5212831095421393e-07 
+		-2.3579728525291443e-07 ;
+	setAttr ".tg[0].tor" -type "double3" 8.7998016262543448 -22.481974414344329 3.9344336899019017 ;
+	setAttr ".lr" -type "double3" -6.361109362927032e-15 -1.3119788061037004e-14 -1.5902773407317574e-15 ;
+	setAttr ".rst" -type "double3" -1.6653345369377348e-16 -8.8817841970012523e-16 1.1102230246251565e-16 ;
+	setAttr ".rsrr" -type "double3" -6.361109362927032e-15 -1.3119788061037004e-14 -1.5902773407317574e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_01_knuckle_01_geoShapeOrig" -p "finger_01_knuckle_01_geo";
 	rename -uid "882D2C46-4433-7AC2-8A1A-34B13CA00CAC";
 	setAttr -k off ".v";
@@ -279,10 +324,33 @@ createNode mesh -n "finger_01_knuckle_01_geoShapeOrig" -p "finger_01_knuckle_01_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_01_knuckle_01_geo_parentConstraint1" -p "finger_01_knuckle_01_geo";
+	rename -uid "80090D55-4562-F3F2-ED2E-5D8334EF1AB5";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_01_knuckle_01_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 1.6282153669777699e-07 5.0415999819364288e-08 
+		-3.1356698926288118e-07 ;
+	setAttr ".tg[0].tor" -type "double3" 22.632997344960135 -61.886806911010332 -1.7445191468477859 ;
+	setAttr ".lr" -type "double3" -9.5416640443905503e-15 -5.9635400277440935e-15 -1.5902773407317578e-15 ;
+	setAttr ".rst" -type "double3" -4.4408920985006262e-16 0 0 ;
+	setAttr ".rsrr" -type "double3" -9.5416640443905503e-15 -5.9635400277440935e-15 
+		-1.5902773407317578e-15 ;
+	setAttr -k on ".w0";
 createNode transform -n "finger_02_knuckle_01_geo";
 	rename -uid "0170A043-4344-7F70-FD96-7F971E63843D";
 	addAttr -is true -ci true -k true -sn "currentUVSet" -ln "currentUVSet" -dt "string";
-	setAttr ".v" no;
 	setAttr ".rp" -type "double3" 3.5131237506866446 -0.19841063022613523 1.4633525609970093 ;
 	setAttr ".sp" -type "double3" 3.5131237506866446 -0.19841063022613523 1.4633525609970093 ;
 	setAttr -k on ".currentUVSet" -type "string" "map1";
@@ -380,6 +448,29 @@ createNode mesh -n "finger_02_knuckle_03_geoShapeOrig" -p "finger_02_knuckle_03_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_02_knuckle_03_geo_parentConstraint1" -p "finger_02_knuckle_03_geo";
+	rename -uid "D1DE9D4A-4C9E-8154-2D7B-359594F6FB51";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_02_knuckle_03_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -1.5527791674685432e-07 -3.5512975005147496e-08 
+		-1.8620597597163169e-07 ;
+	setAttr ".tg[0].tor" -type "double3" -81.583763361065508 29.78178790712596 4.9559800799911731 ;
+	setAttr ".lr" -type "double3" 9.9392333795734899e-17 -5.5173828725626983e-33 6.3611093629270335e-15 ;
+	setAttr ".rst" -type "double3" 1.7763568394002505e-15 -1.5543122344752192e-15 -2.2204460492503131e-16 ;
+	setAttr ".rsrr" -type "double3" 9.9392333795734899e-17 -5.5173828725626983e-33 6.3611093629270335e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_02_knuckle_02_geoShapeOrig" -p "finger_02_knuckle_02_geo";
 	rename -uid "8F492592-4E5C-8461-921E-30A2F6150789";
 	setAttr -k off ".v";
@@ -429,6 +520,29 @@ createNode mesh -n "finger_02_knuckle_02_geoShapeOrig" -p "finger_02_knuckle_02_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_02_knuckle_02_geo_parentConstraint1" -p "finger_02_knuckle_02_geo";
+	rename -uid "D2C1F02F-49E9-BBBB-71AB-3E845457DFCD";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_02_knuckle_02_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -4.7426397831173972e-07 -2.0234294684229326e-08 
+		6.3532105132324546e-08 ;
+	setAttr ".tg[0].tor" -type "double3" -83.060077274564378 12.940328660389218 3.0949918267258494 ;
+	setAttr ".lr" -type "double3" -1.2424041724466832e-17 4.7708320221952759e-15 7.9513867036587939e-16 ;
+	setAttr ".rst" -type "double3" 0 2.2204460492503131e-16 0 ;
+	setAttr ".rsrr" -type "double3" -1.2424041724466832e-17 4.7708320221952759e-15 7.9513867036587939e-16 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_02_knuckle_01_geoShapeOrig" -p "finger_02_knuckle_01_geo";
 	rename -uid "FA04BBAA-4077-C967-051A-5A955F7F17A5";
 	setAttr -k off ".v";
@@ -478,6 +592,29 @@ createNode mesh -n "finger_02_knuckle_01_geoShapeOrig" -p "finger_02_knuckle_01_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_02_knuckle_01_geo_parentConstraint1" -p "finger_02_knuckle_01_geo";
+	rename -uid "C277953C-4D0F-2AB8-659B-C0B836D89C42";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_02_knuckle_01_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -2.0081003526684071e-10 -1.8338306428944406e-09 
+		1.4786525726062649e-08 ;
+	setAttr ".tg[0].tor" -type "double3" -83.026435902877125 -1.3976977121966507 5.0286836947889624 ;
+	setAttr ".lr" -type "double3" -1.2709794684129601e-14 3.9756933518293969e-16 7.9513867036587919e-16 ;
+	setAttr ".rst" -type "double3" 8.8817841970012523e-16 5.5511151231257827e-17 2.2204460492503131e-16 ;
+	setAttr ".rsrr" -type "double3" -1.2709794684129601e-14 3.9756933518293969e-16 7.9513867036587919e-16 ;
+	setAttr -k on ".w0";
 createNode transform -n "finger_03_knuckle_01_geo";
 	rename -uid "B5E63E18-430C-1C18-FEE4-288F614DE8BC";
 	addAttr -is true -ci true -k true -sn "currentUVSet" -ln "currentUVSet" -dt "string";
@@ -577,6 +714,29 @@ createNode mesh -n "finger_03_knuckle_03_geoShapeOrig" -p "finger_03_knuckle_03_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_03_knuckle_03_geo_parentConstraint1" -p "finger_03_knuckle_03_geo";
+	rename -uid "144C634B-4BA4-CC5E-EE28-589AB24B2149";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_03_knuckle_03_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 4.714753085721668e-07 -1.3322676295501878e-15 
+		-1.6859346363418126e-07 ;
+	setAttr ".tg[0].tor" -type "double3" -89.999999999999943 26.945062120901589 1.2681312722616438e-14 ;
+	setAttr ".lr" -type "double3" 1.1927080055488194e-15 1.1131941385122309e-14 4.7708320221952752e-15 ;
+	setAttr ".rst" -type "double3" 0 -4.4408920985006262e-16 -8.8817841970012523e-16 ;
+	setAttr ".rsrr" -type "double3" 1.1927080055488194e-15 1.1131941385122309e-14 4.7708320221952752e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_03_knuckle_02_geoShapeOrig" -p "finger_03_knuckle_02_geo";
 	rename -uid "31CDE0E1-45F1-5D7E-B86E-87A6C50933A7";
 	setAttr -k off ".v";
@@ -621,6 +781,29 @@ createNode mesh -n "finger_03_knuckle_02_geoShapeOrig" -p "finger_03_knuckle_02_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_03_knuckle_02_geo_parentConstraint1" -p "finger_03_knuckle_02_geo";
+	rename -uid "880A9E0A-4A41-D350-70AC-09A5CAC4DA45";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_03_knuckle_02_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -6.6204011162085408e-09 -4.4408920985006262e-16 
+		-2.9057679151733851e-08 ;
+	setAttr ".tg[0].tor" -type "double3" -89.999999999999957 12.834979259081873 -5.693516440889099e-16 ;
+	setAttr ".lr" -type "double3" 6.3630506194464814e-15 -1.9878466759147002e-16 3.3296431821571193e-15 ;
+	setAttr ".rst" -type "double3" 0 2.5673907444456745e-16 0 ;
+	setAttr ".rsrr" -type "double3" 6.3630506194464814e-15 -1.9878466759147002e-16 3.3296431821571193e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_03_knuckle_01_geoShapeOrig" -p "finger_03_knuckle_01_geo";
 	rename -uid "70944130-4912-A43E-A87C-B39F717055EB";
 	setAttr -k off ".v";
@@ -662,10 +845,31 @@ createNode mesh -n "finger_03_knuckle_01_geoShapeOrig" -p "finger_03_knuckle_01_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_03_knuckle_01_geo_parentConstraint1" -p "finger_03_knuckle_01_geo";
+	rename -uid "68D56652-4B13-99A8-8D92-4D9521746E7F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_03_knuckle_01_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -2.3839658469526626e-07 0 -3.2384220027825705e-09 ;
+	setAttr ".tg[0].tor" -type "double3" -89.999999999999957 -0.77826828424933314 -6.0487315957202908e-16 ;
+	setAttr ".lr" -type "double3" 3.8825130388958945e-18 -5.9635400277440939e-16 -2.0205259543076286e-35 ;
+	setAttr ".rst" -type "double3" -4.4408920985006262e-16 6.9388939039072284e-18 0 ;
+	setAttr ".rsrr" -type "double3" 3.8825130388958945e-18 -5.9635400277440939e-16 -2.0205259543076286e-35 ;
+	setAttr -k on ".w0";
 createNode transform -n "finger_04_knuckle_01_geo";
 	rename -uid "7247FAAC-44BA-054E-ABAD-04A312410BFE";
 	addAttr -is true -ci true -k true -sn "currentUVSet" -ln "currentUVSet" -dt "string";
-	setAttr ".v" no;
 	setAttr ".rp" -type "double3" 3.421703100204466 -0.091733649373054532 5.2395558357238778 ;
 	setAttr ".sp" -type "double3" 3.421703100204466 -0.091733649373054532 5.2395558357238778 ;
 	setAttr -k on ".currentUVSet" -type "string" "map1";
@@ -763,6 +967,29 @@ createNode mesh -n "finger_04_knuckle_03_geoShapeOrig" -p "finger_04_knuckle_03_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_04_knuckle_03_geo_parentConstraint1" -p "finger_04_knuckle_03_geo";
+	rename -uid "0E44F6E0-47AA-00D0-FF4D-F99A2443F130";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_04_knuckle_03_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -4.0966293113342545e-07 -3.5354932403919292e-07 
+		3.3583673442194595e-07 ;
+	setAttr ".tg[0].tor" -type "double3" -96.018539041872529 35.725590744032786 -6.2245830965521867 ;
+	setAttr ".lr" -type "double3" -1.9480897423964044e-14 3.1805546814635187e-15 1.113194138512231e-14 ;
+	setAttr ".rst" -type "double3" 1.7763568394002505e-15 2.2204460492503131e-16 -8.8817841970012523e-16 ;
+	setAttr ".rsrr" -type "double3" -1.9480897423964044e-14 3.1805546814635187e-15 1.113194138512231e-14 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_04_knuckle_02_geoShapeOrig" -p "finger_04_knuckle_02_geo";
 	rename -uid "356B44BE-4A34-FF44-B8AA-61844EA455D5";
 	setAttr -k off ".v";
@@ -812,6 +1039,29 @@ createNode mesh -n "finger_04_knuckle_02_geoShapeOrig" -p "finger_04_knuckle_02_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_04_knuckle_02_geo_parentConstraint1" -p "finger_04_knuckle_02_geo";
+	rename -uid "1E5B4842-4E74-41C0-2470-7DA5B2530B20";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_04_knuckle_02_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.070243194204206993 0.0061684137499726788 
+		0.020926537353156416 ;
+	setAttr ".tg[0].tor" -type "double3" -93.971040389661354 17.49946688070558 -4.7673944534980244 ;
+	setAttr ".lr" -type "double3" -1.490885006936023e-16 1.5902773407317584e-15 2.7829853462805772e-15 ;
+	setAttr ".rst" -type "double3" -8.8817841970012523e-16 5.5511151231257827e-16 -8.8817841970012523e-16 ;
+	setAttr ".rsrr" -type "double3" -1.490885006936023e-16 1.5902773407317584e-15 2.7829853462805772e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_04_knuckle_01_geoShapeOrig" -p "finger_04_knuckle_01_geo";
 	rename -uid "9670C097-4524-15FD-A7EF-7196B2EE1886";
 	setAttr -k off ".v";
@@ -861,10 +1111,32 @@ createNode mesh -n "finger_04_knuckle_01_geoShapeOrig" -p "finger_04_knuckle_01_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_04_knuckle_01_geo_parentConstraint1" -p "finger_04_knuckle_01_geo";
+	rename -uid "5C4E5A18-4AC6-BB12-02D5-3C9F3CCF5A67";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_04_knuckle_01_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.0049511369583821185 0.011674535852678858 
+		0.091141290522339546 ;
+	setAttr ".tg[0].tor" -type "double3" -93.975953313005462 -0.43829637073388555 -6.2806228310978183 ;
+	setAttr ".lr" -type "double3" -7.4544250346801162e-17 3.975693351829395e-16 1.1927080055488186e-15 ;
+	setAttr ".rst" -type "double3" 0 -8.3266726846886741e-17 1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" -7.4544250346801162e-17 3.975693351829395e-16 1.1927080055488186e-15 ;
+	setAttr -k on ".w0";
 createNode transform -n "finger_05_knuckle_01_geo";
 	rename -uid "B25D97B6-43DA-3C55-0EEE-F483BD9F392A";
 	addAttr -is true -ci true -k true -sn "currentUVSet" -ln "currentUVSet" -dt "string";
-	setAttr ".v" no;
 	setAttr ".rp" -type "double3" 2.6425487995147705 -0.31119802594184864 7.0078477859497079 ;
 	setAttr ".sp" -type "double3" 2.6425487995147705 -0.31119802594184864 7.0078477859497079 ;
 	setAttr -k on ".currentUVSet" -type "string" "map1";
@@ -961,6 +1233,29 @@ createNode mesh -n "finger_05_knuckle_03_geoShapeOrig" -p "finger_05_knuckle_03_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_05_knuckle_03_geo_parentConstraint1" -p "finger_05_knuckle_03_geo";
+	rename -uid "6A0D6F33-40BD-D32C-497E-5CBB9C659CE6";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_05_knuckle_03_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 9.0225452886727453e-08 1.5399741926103161e-08 
+		1.6936849256410369e-07 ;
+	setAttr ".tg[0].tor" -type "double3" -110.61759783023338 39.939000532014454 -16.562939136907289 ;
+	setAttr ".lr" -type "double3" -8.5477407064332035e-15 -1.033680271475643e-14 4.7708320221952767e-15 ;
+	setAttr ".rst" -type "double3" 1.7763568394002505e-15 6.6613381477509392e-16 1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" -8.5477407064332035e-15 -1.033680271475643e-14 4.7708320221952767e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_05_knuckle_02_geoShapeOrig" -p "finger_05_knuckle_02_geo";
 	rename -uid "01A372FD-4018-DDEB-C45E-DA84AC35A74F";
 	setAttr -k off ".v";
@@ -1009,6 +1304,28 @@ createNode mesh -n "finger_05_knuckle_02_geoShapeOrig" -p "finger_05_knuckle_02_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_05_knuckle_02_geo_parentConstraint1" -p "finger_05_knuckle_02_geo";
+	rename -uid "977C8487-4837-8F7D-7EBF-D08F0942D3C4";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_05_knuckle_02_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.089369779761224066 0.48339535686171864 -0.40501449636039899 ;
+	setAttr ".tg[0].tor" -type "double3" -103.13820292200116 14.537884904347919 -11.103002813422156 ;
+	setAttr ".lr" -type "double3" -6.5598940305185035e-15 3.1805546814635168e-15 1.5902773407317582e-15 ;
+	setAttr ".rst" -type "double3" 0 -2.7755575615628914e-16 1.7763568394002505e-15 ;
+	setAttr ".rsrr" -type "double3" -6.5598940305185035e-15 3.1805546814635168e-15 1.5902773407317582e-15 ;
+	setAttr -k on ".w0";
 createNode mesh -n "finger_05_knuckle_01_geoShapeOrig" -p "finger_05_knuckle_01_geo";
 	rename -uid "2FF0846F-49B1-8DB7-237E-47BB0F5B6F3B";
 	setAttr -k off ".v";
@@ -1058,10 +1375,33 @@ createNode mesh -n "finger_05_knuckle_01_geoShapeOrig" -p "finger_05_knuckle_01_
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode parentConstraint -n "finger_05_knuckle_01_geo_parentConstraint1" -p "finger_05_knuckle_01_geo";
+	rename -uid "4F208CC5-4AEF-C7BC-0743-D78D813FBFAB";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "finger_05_knuckle_01_jntW0" -dv 1 
+		-min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.299389096904747e-07 -5.4575473917850559e-08 
+		4.3372945124353635e-08 ;
+	setAttr ".tg[0].tor" -type "double3" -99.67643506651612 -3.3773497791297995 -14.566517059196993 ;
+	setAttr ".lr" -type "double3" 1.9282112756372571e-14 -3.1805546814635168e-15 -5.3518613863858174e-31 ;
+	setAttr ".rst" -type "double3" -8.8817841970012523e-16 -1.1102230246251565e-16 -8.8817841970012523e-16 ;
+	setAttr ".rsrr" -type "double3" 1.9282112756372571e-14 -3.1805546814635168e-15 -5.3518613863858174e-31 ;
+	setAttr -k on ".w0";
 createNode joint -n "finger_01_knuckle_01_jnt";
 	rename -uid "DBB97C54-4576-9E8E-EF08-00AD4095B267";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" -2.417384147644043 -1.9593381881713867 2.8336107730865479 ;
+	setAttr ".r" -type "double3" -10.999999999999993 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
@@ -1077,11 +1417,11 @@ createNode joint -n "finger_01_knuckle_02_jnt" -p "finger_01_knuckle_01_jnt";
 	setAttr ".radi" 0.6410914053951573;
 createNode joint -n "finger_01_knuckle_03_jnt" -p "finger_01_knuckle_02_jnt";
 	rename -uid "C731E98B-490A-78DA-A4FC-2C968072B03D";
-	setAttr ".t" -type "double3" 3.727767170973042 -5.5511151231257827e-17 6.6613381477509392e-16 ;
+	setAttr ".t" -type "double3" 3.7005159810256569 -0.44611167682758257 0.058428819568446588 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" 0.86881191985187101 -20.018012544041866 11.381575462581591 ;
+	setAttr ".jo" -type "double3" 0 -22.369967195473652 1.3416956310344554 ;
 	setAttr ".radi" 0.58906911060667044;
 createNode joint -n "finger_01_knuckle_04_jnt" -p "finger_01_knuckle_03_jnt";
 	rename -uid "15BB4040-438C-C83B-5B8B-99A85B15E24E";
@@ -1089,40 +1429,39 @@ createNode joint -n "finger_01_knuckle_04_jnt" -p "finger_01_knuckle_03_jnt";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" -7.7651166394555336e-19 0.27671726512367889 2.3832413949491769 ;
 	setAttr ".radi" 0.71903851279388631;
 createNode joint -n "finger_02_knuckle_01_jnt";
 	rename -uid "A492072E-4C5C-FD6C-1EF3-95819E49352D";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 3.5131237506866455 -0.19841061532497406 1.4633525609970093 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" 0.06974642837719025 5.1610802143107897 0.77529177143779104 ;
+	setAttr ".jo" -type "double3" 82.999999999999972 5.1610802143108119 0.77529177143777483 ;
 	setAttr ".radi" 0.64342709779345708;
 createNode joint -n "finger_02_knuckle_02_jnt" -p "finger_02_knuckle_01_jnt";
 	rename -uid "8EE82ED9-449F-FBB0-0DA5-B99E361BF7D9";
-	setAttr ".t" -type "double3" 3.7729238906735034 1.7341813748905643e-16 -1.2212453270876722e-15 ;
+	setAttr ".t" -type "double3" 3.7729238906735034 0 -1.27675647831893e-15 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" 0.430549870683759 -1.7871625459300431 -14.319669877307515 ;
+	setAttr ".jo" -type "double3" 0.82531169320292808 -14.314789796838454 1.8266428569580657 ;
 	setAttr ".radi" 0.6226221123351442;
 createNode joint -n "finger_02_knuckle_03_jnt" -p "finger_02_knuckle_02_jnt";
 	rename -uid "75DE2977-4B66-83B7-4DD0-1F83DA1B6BEF";
-	setAttr ".t" -type "double3" 3.370694171812787 1.3040783730655647e-15 -1.3877787807814457e-16 ;
+	setAttr ".t" -type "double3" 3.3691342814030474 -0.10217744631186942 0.0085535508803791238 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" 1.2357287736623246 -2.1269380030436973 -16.624910912247188 ;
+	setAttr ".jo" -type "double3" 0 -16.896897770672442 -1.3173636090862273 ;
 	setAttr ".radi" 0.58906913091115654;
 createNode joint -n "finger_02_knuckle_04_jnt" -p "finger_02_knuckle_03_jnt";
 	rename -uid "DDFDC68F-4C29-01D1-4D5B-A88CB1DAC295";
-	setAttr ".t" -type "double3" 2.7220031976156931 1.176684617798518e-15 -2.7755575615628914e-17 ;
+	setAttr ".t" -type "double3" 2.72200319761569 0 3.5527136788005009e-15 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" 2.4850906011082578e-17 -0.86355973451563661 30.142777115198395 ;
+	setAttr ".jot" -type "string" "none";
+	setAttr ".jo" -type "double3" 0 -7.4916971598535199e-15 -4.0750856856251317e-15 ;
 	setAttr ".radi" 0.58906913091115654;
 createNode joint -n "finger_03_knuckle_01_jnt";
 	rename -uid "E2C6B30F-48C9-EEC5-4F12-A09D24BC1C46";
@@ -1159,69 +1498,67 @@ createNode joint -n "finger_03_knuckle_04_jnt" -p "finger_03_knuckle_03_jnt";
 	setAttr ".radi" 0.59355667438525939;
 createNode joint -n "finger_04_knuckle_01_jnt";
 	rename -uid "75C1CCA1-449E-1DEC-7D5C-599FAC48193D";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 3.4272043136945118 0 5.2348422802217076 ;
+	setAttr ".r" -type "double3" 4.0000000000000213 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" 0 -6.2958364650945429 0 ;
+	setAttr ".jo" -type "double3" 90 -6.2958364650945429 1.1999449612817548e-15 ;
 	setAttr ".radi" 0.6362858736305298;
 createNode joint -n "finger_04_knuckle_02_jnt" -p "finger_04_knuckle_01_jnt";
 	rename -uid "AE5A53D9-4589-2F7D-9097-449A2525B618";
-	setAttr ".t" -type "double3" 3.6348602235235754 0 1.0547118733938987e-15 ;
+	setAttr ".t" -type "double3" 3.6348602235235763 -2.2997696857086196e-16 -8.2954753753503261e-17 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" -0.38962682604703081 1.2080532016267054 -17.877284182958533 ;
+	setAttr ".jo" -type "double3" -1.5462873645012529 -17.873176470396469 -1.2693223014291144 ;
 	setAttr ".radi" 0.62292518574570099;
 createNode joint -n "finger_04_knuckle_03_jnt" -p "finger_04_knuckle_02_jnt";
 	rename -uid "8874D785-46C7-4471-A3F7-789CAF8BC4BF";
-	setAttr ".t" -type "double3" 3.376553591083554 -1.1379786002407855e-15 4.4408920985006262e-16 ;
+	setAttr ".t" -type "double3" 3.3757751752157441 0.072342007384188278 0.0047700968517498943 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" -0.99842348109644785 1.3708649997083107 -18.198650927732558 ;
+	setAttr ".jo" -type "double3" 0 -18.316461716614565 0.52819871186018374 ;
 	setAttr ".radi" 0.58637655510782394;
 createNode joint -n "finger_04_knuckle_04_jnt" -p "finger_04_knuckle_03_jnt";
 	rename -uid "FD480F18-4C85-97C1-7BAD-CAA2B97C8F4B";
-	setAttr ".t" -type "double3" 2.6699467320845973 7.4940054162198066e-16 -1.6653345369377348e-16 ;
+	setAttr ".t" -type "double3" 2.6699467320845973 5.0901006532389026e-16 -3.1526730290418983e-17 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" -4.0577673861185779e-16 -11.543345508503434 36.059882332132091 ;
 	setAttr ".radi" 0.58637655510782394;
 createNode joint -n "finger_05_knuckle_01_jnt";
 	rename -uid "A738E117-45D6-3A99-CA20-6593E5FC28F4";
-	setAttr ".v" no;
 	setAttr ".t" -type "double3" 2.6425485610961914 -0.31119799613952637 7.007847785949707 ;
+	setAttr ".r" -type "double3" 10.000000000000016 0 0 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" -0.2127681427903878 -14.922330058498062 0.82620040825957142 ;
+	setAttr ".jo" -type "double3" 90 -14.922330058498039 0.82620040825959495 ;
 	setAttr ".radi" 0.60958597811009363;
 createNode joint -n "finger_05_knuckle_02_jnt" -p "finger_05_knuckle_01_jnt";
 	rename -uid "CCD2DA0B-4C2E-544B-DF40-CDBFA1B5ACDF";
-	setAttr ".t" -type "double3" 3.1186622434618108 -3.1225022567582528e-17 -2.2204460492503131e-16 ;
+	setAttr ".t" -type "double3" 3.1186622434618112 -3.7661384076516739e-16 1.02563934387771e-15 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" -1.1569265669416204 3.6796712238836262 -18.265524596950304 ;
+	setAttr ".jo" -type "double3" 0 -18.240790850514287 -3.8043959553099218 ;
 	setAttr ".radi" 0.59860810049130841;
 createNode joint -n "finger_05_knuckle_03_jnt" -p "finger_05_knuckle_02_jnt";
 	rename -uid "6514F23F-49E0-4D58-052B-02994F4F59C0";
-	setAttr ".t" -type "double3" 2.9064232761652971 2.4980018054066022e-16 0 ;
+	setAttr ".t" -type "double3" 2.9019217944042301 0.1604034416917024 0.020418013875138641 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" -4.8590021335562215 5.2711060030528722 -25.34927697343204 ;
+	setAttr ".jo" -type "double3" 0 -26.231917070679213 1.9469069201912657 ;
 	setAttr ".radi" 0.56967659842755491;
 createNode joint -n "finger_05_knuckle_04_jnt" -p "finger_05_knuckle_03_jnt";
 	rename -uid "4CCFCADF-49B9-E937-9360-79A45FA94A34";
-	setAttr ".t" -type "double3" 2.3470809029327278 -1.1015494072452725e-16 1.124100812432971e-15 ;
+	setAttr ".t" -type "double3" 2.3470809029327278 1.8637931926480409e-15 1.6303679031315509e-15 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
-	setAttr ".jo" -type "double3" 0 3.9024494024594061 42.55550037258466 ;
 	setAttr ".radi" 0.56967659842755491;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "12D978D7-4E0B-C08A-58B0-31AA47755E69";
@@ -1351,35 +1688,665 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
+connectAttr "finger_01_knuckle_01_geo_parentConstraint1.ctx" "finger_01_knuckle_01_geo.tx"
+		;
+connectAttr "finger_01_knuckle_01_geo_parentConstraint1.cty" "finger_01_knuckle_01_geo.ty"
+		;
+connectAttr "finger_01_knuckle_01_geo_parentConstraint1.ctz" "finger_01_knuckle_01_geo.tz"
+		;
+connectAttr "finger_01_knuckle_01_geo_parentConstraint1.crx" "finger_01_knuckle_01_geo.rx"
+		;
+connectAttr "finger_01_knuckle_01_geo_parentConstraint1.cry" "finger_01_knuckle_01_geo.ry"
+		;
+connectAttr "finger_01_knuckle_01_geo_parentConstraint1.crz" "finger_01_knuckle_01_geo.rz"
+		;
 connectAttr "finger_01_knuckle_01_geoShapeOrig.w" "finger_01_knuckle_01_geoShape.i"
+		;
+connectAttr "finger_01_knuckle_02_geo_parentConstraint1.ctx" "finger_01_knuckle_02_geo.tx"
+		;
+connectAttr "finger_01_knuckle_02_geo_parentConstraint1.cty" "finger_01_knuckle_02_geo.ty"
+		;
+connectAttr "finger_01_knuckle_02_geo_parentConstraint1.ctz" "finger_01_knuckle_02_geo.tz"
+		;
+connectAttr "finger_01_knuckle_02_geo_parentConstraint1.crx" "finger_01_knuckle_02_geo.rx"
+		;
+connectAttr "finger_01_knuckle_02_geo_parentConstraint1.cry" "finger_01_knuckle_02_geo.ry"
+		;
+connectAttr "finger_01_knuckle_02_geo_parentConstraint1.crz" "finger_01_knuckle_02_geo.rz"
 		;
 connectAttr "finger_01_knuckle_02_geoShapeOrig.w" "finger_01_knuckle_02_geoShape.i"
 		;
+connectAttr "finger_01_knuckle_03_geo_parentConstraint1.ctx" "finger_01_knuckle_03_geo.tx"
+		;
+connectAttr "finger_01_knuckle_03_geo_parentConstraint1.cty" "finger_01_knuckle_03_geo.ty"
+		;
+connectAttr "finger_01_knuckle_03_geo_parentConstraint1.ctz" "finger_01_knuckle_03_geo.tz"
+		;
+connectAttr "finger_01_knuckle_03_geo_parentConstraint1.crx" "finger_01_knuckle_03_geo.rx"
+		;
+connectAttr "finger_01_knuckle_03_geo_parentConstraint1.cry" "finger_01_knuckle_03_geo.ry"
+		;
+connectAttr "finger_01_knuckle_03_geo_parentConstraint1.crz" "finger_01_knuckle_03_geo.rz"
+		;
 connectAttr "finger_01_knuckle_03_geoShapeOrig.w" "finger_01_knuckle_03_geoShape.i"
+		;
+connectAttr "finger_01_knuckle_03_geo.ro" "finger_01_knuckle_03_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_01_knuckle_03_geo.pim" "finger_01_knuckle_03_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_01_knuckle_03_geo.rp" "finger_01_knuckle_03_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_01_knuckle_03_geo.rpt" "finger_01_knuckle_03_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_01_knuckle_03_jnt.t" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_01_knuckle_03_jnt.rp" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_01_knuckle_03_jnt.rpt" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_01_knuckle_03_jnt.r" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_01_knuckle_03_jnt.ro" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_01_knuckle_03_jnt.s" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_01_knuckle_03_jnt.pm" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_01_knuckle_03_jnt.jo" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_01_knuckle_03_jnt.ssc" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_01_knuckle_03_jnt.is" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_01_knuckle_03_geo_parentConstraint1.w0" "finger_01_knuckle_03_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_01_knuckle_02_geo.ro" "finger_01_knuckle_02_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_01_knuckle_02_geo.pim" "finger_01_knuckle_02_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_01_knuckle_02_geo.rp" "finger_01_knuckle_02_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_01_knuckle_02_geo.rpt" "finger_01_knuckle_02_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_01_knuckle_02_jnt.t" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_01_knuckle_02_jnt.rp" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_01_knuckle_02_jnt.rpt" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_01_knuckle_02_jnt.r" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_01_knuckle_02_jnt.ro" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_01_knuckle_02_jnt.s" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_01_knuckle_02_jnt.pm" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_01_knuckle_02_jnt.jo" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_01_knuckle_02_jnt.ssc" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_01_knuckle_02_jnt.is" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_01_knuckle_02_geo_parentConstraint1.w0" "finger_01_knuckle_02_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_01_knuckle_01_geo.ro" "finger_01_knuckle_01_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_01_knuckle_01_geo.pim" "finger_01_knuckle_01_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_01_knuckle_01_geo.rp" "finger_01_knuckle_01_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_01_knuckle_01_geo.rpt" "finger_01_knuckle_01_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_01_knuckle_01_jnt.t" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_01_knuckle_01_jnt.rp" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_01_knuckle_01_jnt.rpt" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_01_knuckle_01_jnt.r" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_01_knuckle_01_jnt.ro" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_01_knuckle_01_jnt.s" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_01_knuckle_01_jnt.pm" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_01_knuckle_01_jnt.jo" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_01_knuckle_01_jnt.ssc" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_01_knuckle_01_jnt.is" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_01_knuckle_01_geo_parentConstraint1.w0" "finger_01_knuckle_01_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_02_knuckle_01_geo_parentConstraint1.ctx" "finger_02_knuckle_01_geo.tx"
+		;
+connectAttr "finger_02_knuckle_01_geo_parentConstraint1.cty" "finger_02_knuckle_01_geo.ty"
+		;
+connectAttr "finger_02_knuckle_01_geo_parentConstraint1.ctz" "finger_02_knuckle_01_geo.tz"
+		;
+connectAttr "finger_02_knuckle_01_geo_parentConstraint1.crx" "finger_02_knuckle_01_geo.rx"
+		;
+connectAttr "finger_02_knuckle_01_geo_parentConstraint1.cry" "finger_02_knuckle_01_geo.ry"
+		;
+connectAttr "finger_02_knuckle_01_geo_parentConstraint1.crz" "finger_02_knuckle_01_geo.rz"
 		;
 connectAttr "finger_02_knuckle_01_geoShapeOrig.w" "finger_02_knuckle_01_geoShape.i"
 		;
+connectAttr "finger_02_knuckle_02_geo_parentConstraint1.ctx" "finger_02_knuckle_02_geo.tx"
+		;
+connectAttr "finger_02_knuckle_02_geo_parentConstraint1.cty" "finger_02_knuckle_02_geo.ty"
+		;
+connectAttr "finger_02_knuckle_02_geo_parentConstraint1.ctz" "finger_02_knuckle_02_geo.tz"
+		;
+connectAttr "finger_02_knuckle_02_geo_parentConstraint1.crx" "finger_02_knuckle_02_geo.rx"
+		;
+connectAttr "finger_02_knuckle_02_geo_parentConstraint1.cry" "finger_02_knuckle_02_geo.ry"
+		;
+connectAttr "finger_02_knuckle_02_geo_parentConstraint1.crz" "finger_02_knuckle_02_geo.rz"
+		;
 connectAttr "finger_02_knuckle_02_geoShapeOrig.w" "finger_02_knuckle_02_geoShape.i"
+		;
+connectAttr "finger_02_knuckle_03_geo_parentConstraint1.ctx" "finger_02_knuckle_03_geo.tx"
+		;
+connectAttr "finger_02_knuckle_03_geo_parentConstraint1.cty" "finger_02_knuckle_03_geo.ty"
+		;
+connectAttr "finger_02_knuckle_03_geo_parentConstraint1.ctz" "finger_02_knuckle_03_geo.tz"
+		;
+connectAttr "finger_02_knuckle_03_geo_parentConstraint1.crx" "finger_02_knuckle_03_geo.rx"
+		;
+connectAttr "finger_02_knuckle_03_geo_parentConstraint1.cry" "finger_02_knuckle_03_geo.ry"
+		;
+connectAttr "finger_02_knuckle_03_geo_parentConstraint1.crz" "finger_02_knuckle_03_geo.rz"
 		;
 connectAttr "finger_02_knuckle_03_geoShapeOrig.w" "finger_02_knuckle_03_geoShape.i"
 		;
+connectAttr "finger_02_knuckle_03_geo.ro" "finger_02_knuckle_03_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_02_knuckle_03_geo.pim" "finger_02_knuckle_03_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_02_knuckle_03_geo.rp" "finger_02_knuckle_03_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_02_knuckle_03_geo.rpt" "finger_02_knuckle_03_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_02_knuckle_03_jnt.t" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_02_knuckle_03_jnt.rp" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_02_knuckle_03_jnt.rpt" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_02_knuckle_03_jnt.r" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_02_knuckle_03_jnt.ro" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_02_knuckle_03_jnt.s" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_02_knuckle_03_jnt.pm" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_02_knuckle_03_jnt.jo" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_02_knuckle_03_jnt.ssc" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_02_knuckle_03_jnt.is" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_02_knuckle_03_geo_parentConstraint1.w0" "finger_02_knuckle_03_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_02_knuckle_02_geo.ro" "finger_02_knuckle_02_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_02_knuckle_02_geo.pim" "finger_02_knuckle_02_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_02_knuckle_02_geo.rp" "finger_02_knuckle_02_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_02_knuckle_02_geo.rpt" "finger_02_knuckle_02_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_02_knuckle_02_jnt.t" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_02_knuckle_02_jnt.rp" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_02_knuckle_02_jnt.rpt" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_02_knuckle_02_jnt.r" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_02_knuckle_02_jnt.ro" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_02_knuckle_02_jnt.s" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_02_knuckle_02_jnt.pm" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_02_knuckle_02_jnt.jo" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_02_knuckle_02_jnt.ssc" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_02_knuckle_02_jnt.is" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_02_knuckle_02_geo_parentConstraint1.w0" "finger_02_knuckle_02_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_02_knuckle_01_geo.ro" "finger_02_knuckle_01_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_02_knuckle_01_geo.pim" "finger_02_knuckle_01_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_02_knuckle_01_geo.rp" "finger_02_knuckle_01_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_02_knuckle_01_geo.rpt" "finger_02_knuckle_01_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_02_knuckle_01_jnt.t" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_02_knuckle_01_jnt.rp" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_02_knuckle_01_jnt.rpt" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_02_knuckle_01_jnt.r" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_02_knuckle_01_jnt.ro" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_02_knuckle_01_jnt.s" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_02_knuckle_01_jnt.pm" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_02_knuckle_01_jnt.jo" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_02_knuckle_01_jnt.ssc" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_02_knuckle_01_jnt.is" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_02_knuckle_01_geo_parentConstraint1.w0" "finger_02_knuckle_01_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_03_knuckle_01_geo_parentConstraint1.ctx" "finger_03_knuckle_01_geo.tx"
+		;
+connectAttr "finger_03_knuckle_01_geo_parentConstraint1.cty" "finger_03_knuckle_01_geo.ty"
+		;
+connectAttr "finger_03_knuckle_01_geo_parentConstraint1.ctz" "finger_03_knuckle_01_geo.tz"
+		;
+connectAttr "finger_03_knuckle_01_geo_parentConstraint1.crx" "finger_03_knuckle_01_geo.rx"
+		;
+connectAttr "finger_03_knuckle_01_geo_parentConstraint1.cry" "finger_03_knuckle_01_geo.ry"
+		;
+connectAttr "finger_03_knuckle_01_geo_parentConstraint1.crz" "finger_03_knuckle_01_geo.rz"
+		;
 connectAttr "finger_03_knuckle_01_geoShapeOrig.w" "finger_03_knuckle_01_geoShape.i"
+		;
+connectAttr "finger_03_knuckle_02_geo_parentConstraint1.ctx" "finger_03_knuckle_02_geo.tx"
+		;
+connectAttr "finger_03_knuckle_02_geo_parentConstraint1.cty" "finger_03_knuckle_02_geo.ty"
+		;
+connectAttr "finger_03_knuckle_02_geo_parentConstraint1.ctz" "finger_03_knuckle_02_geo.tz"
+		;
+connectAttr "finger_03_knuckle_02_geo_parentConstraint1.crx" "finger_03_knuckle_02_geo.rx"
+		;
+connectAttr "finger_03_knuckle_02_geo_parentConstraint1.cry" "finger_03_knuckle_02_geo.ry"
+		;
+connectAttr "finger_03_knuckle_02_geo_parentConstraint1.crz" "finger_03_knuckle_02_geo.rz"
 		;
 connectAttr "finger_03_knuckle_02_geoShapeOrig.w" "finger_03_knuckle_02_geoShape.i"
 		;
+connectAttr "finger_03_knuckle_03_geo_parentConstraint1.ctx" "finger_03_knuckle_03_geo.tx"
+		;
+connectAttr "finger_03_knuckle_03_geo_parentConstraint1.cty" "finger_03_knuckle_03_geo.ty"
+		;
+connectAttr "finger_03_knuckle_03_geo_parentConstraint1.ctz" "finger_03_knuckle_03_geo.tz"
+		;
+connectAttr "finger_03_knuckle_03_geo_parentConstraint1.crx" "finger_03_knuckle_03_geo.rx"
+		;
+connectAttr "finger_03_knuckle_03_geo_parentConstraint1.cry" "finger_03_knuckle_03_geo.ry"
+		;
+connectAttr "finger_03_knuckle_03_geo_parentConstraint1.crz" "finger_03_knuckle_03_geo.rz"
+		;
 connectAttr "finger_03_knuckle_03_geoShapeOrig.w" "finger_03_knuckle_03_geoShape.i"
+		;
+connectAttr "finger_03_knuckle_03_geo.ro" "finger_03_knuckle_03_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_03_knuckle_03_geo.pim" "finger_03_knuckle_03_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_03_knuckle_03_geo.rp" "finger_03_knuckle_03_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_03_knuckle_03_geo.rpt" "finger_03_knuckle_03_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_03_knuckle_03_jnt.t" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_03_knuckle_03_jnt.rp" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_03_knuckle_03_jnt.rpt" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_03_knuckle_03_jnt.r" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_03_knuckle_03_jnt.ro" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_03_knuckle_03_jnt.s" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_03_knuckle_03_jnt.pm" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_03_knuckle_03_jnt.jo" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_03_knuckle_03_jnt.ssc" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_03_knuckle_03_jnt.is" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_03_knuckle_03_geo_parentConstraint1.w0" "finger_03_knuckle_03_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_03_knuckle_02_geo.ro" "finger_03_knuckle_02_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_03_knuckle_02_geo.pim" "finger_03_knuckle_02_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_03_knuckle_02_geo.rp" "finger_03_knuckle_02_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_03_knuckle_02_geo.rpt" "finger_03_knuckle_02_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_03_knuckle_02_jnt.t" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_03_knuckle_02_jnt.rp" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_03_knuckle_02_jnt.rpt" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_03_knuckle_02_jnt.r" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_03_knuckle_02_jnt.ro" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_03_knuckle_02_jnt.s" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_03_knuckle_02_jnt.pm" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_03_knuckle_02_jnt.jo" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_03_knuckle_02_jnt.ssc" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_03_knuckle_02_jnt.is" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_03_knuckle_02_geo_parentConstraint1.w0" "finger_03_knuckle_02_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_03_knuckle_01_geo.ro" "finger_03_knuckle_01_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_03_knuckle_01_geo.pim" "finger_03_knuckle_01_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_03_knuckle_01_geo.rp" "finger_03_knuckle_01_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_03_knuckle_01_geo.rpt" "finger_03_knuckle_01_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_03_knuckle_01_jnt.t" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_03_knuckle_01_jnt.rp" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_03_knuckle_01_jnt.rpt" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_03_knuckle_01_jnt.r" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_03_knuckle_01_jnt.ro" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_03_knuckle_01_jnt.s" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_03_knuckle_01_jnt.pm" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_03_knuckle_01_jnt.jo" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_03_knuckle_01_jnt.ssc" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_03_knuckle_01_jnt.is" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_03_knuckle_01_geo_parentConstraint1.w0" "finger_03_knuckle_01_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_04_knuckle_01_geo_parentConstraint1.ctx" "finger_04_knuckle_01_geo.tx"
+		;
+connectAttr "finger_04_knuckle_01_geo_parentConstraint1.cty" "finger_04_knuckle_01_geo.ty"
+		;
+connectAttr "finger_04_knuckle_01_geo_parentConstraint1.ctz" "finger_04_knuckle_01_geo.tz"
+		;
+connectAttr "finger_04_knuckle_01_geo_parentConstraint1.crx" "finger_04_knuckle_01_geo.rx"
+		;
+connectAttr "finger_04_knuckle_01_geo_parentConstraint1.cry" "finger_04_knuckle_01_geo.ry"
+		;
+connectAttr "finger_04_knuckle_01_geo_parentConstraint1.crz" "finger_04_knuckle_01_geo.rz"
 		;
 connectAttr "finger_04_knuckle_01_geoShapeOrig.w" "finger_04_knuckle_01_geoShape.i"
 		;
+connectAttr "finger_04_knuckle_02_geo_parentConstraint1.ctx" "finger_04_knuckle_02_geo.tx"
+		;
+connectAttr "finger_04_knuckle_02_geo_parentConstraint1.cty" "finger_04_knuckle_02_geo.ty"
+		;
+connectAttr "finger_04_knuckle_02_geo_parentConstraint1.ctz" "finger_04_knuckle_02_geo.tz"
+		;
+connectAttr "finger_04_knuckle_02_geo_parentConstraint1.crx" "finger_04_knuckle_02_geo.rx"
+		;
+connectAttr "finger_04_knuckle_02_geo_parentConstraint1.cry" "finger_04_knuckle_02_geo.ry"
+		;
+connectAttr "finger_04_knuckle_02_geo_parentConstraint1.crz" "finger_04_knuckle_02_geo.rz"
+		;
 connectAttr "finger_04_knuckle_02_geoShapeOrig.w" "finger_04_knuckle_02_geoShape.i"
+		;
+connectAttr "finger_04_knuckle_03_geo_parentConstraint1.ctx" "finger_04_knuckle_03_geo.tx"
+		;
+connectAttr "finger_04_knuckle_03_geo_parentConstraint1.cty" "finger_04_knuckle_03_geo.ty"
+		;
+connectAttr "finger_04_knuckle_03_geo_parentConstraint1.ctz" "finger_04_knuckle_03_geo.tz"
+		;
+connectAttr "finger_04_knuckle_03_geo_parentConstraint1.crx" "finger_04_knuckle_03_geo.rx"
+		;
+connectAttr "finger_04_knuckle_03_geo_parentConstraint1.cry" "finger_04_knuckle_03_geo.ry"
+		;
+connectAttr "finger_04_knuckle_03_geo_parentConstraint1.crz" "finger_04_knuckle_03_geo.rz"
 		;
 connectAttr "finger_04_knuckle_03_geoShapeOrig.w" "finger_04_knuckle_03_geoShape.i"
 		;
+connectAttr "finger_04_knuckle_03_geo.ro" "finger_04_knuckle_03_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_04_knuckle_03_geo.pim" "finger_04_knuckle_03_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_04_knuckle_03_geo.rp" "finger_04_knuckle_03_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_04_knuckle_03_geo.rpt" "finger_04_knuckle_03_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_04_knuckle_03_jnt.t" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_04_knuckle_03_jnt.rp" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_04_knuckle_03_jnt.rpt" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_04_knuckle_03_jnt.r" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_04_knuckle_03_jnt.ro" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_04_knuckle_03_jnt.s" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_04_knuckle_03_jnt.pm" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_04_knuckle_03_jnt.jo" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_04_knuckle_03_jnt.ssc" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_04_knuckle_03_jnt.is" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_04_knuckle_03_geo_parentConstraint1.w0" "finger_04_knuckle_03_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_04_knuckle_02_geo.ro" "finger_04_knuckle_02_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_04_knuckle_02_geo.pim" "finger_04_knuckle_02_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_04_knuckle_02_geo.rp" "finger_04_knuckle_02_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_04_knuckle_02_geo.rpt" "finger_04_knuckle_02_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_04_knuckle_02_jnt.t" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_04_knuckle_02_jnt.rp" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_04_knuckle_02_jnt.rpt" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_04_knuckle_02_jnt.r" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_04_knuckle_02_jnt.ro" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_04_knuckle_02_jnt.s" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_04_knuckle_02_jnt.pm" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_04_knuckle_02_jnt.jo" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_04_knuckle_02_jnt.ssc" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_04_knuckle_02_jnt.is" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_04_knuckle_02_geo_parentConstraint1.w0" "finger_04_knuckle_02_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_04_knuckle_01_geo.ro" "finger_04_knuckle_01_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_04_knuckle_01_geo.pim" "finger_04_knuckle_01_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_04_knuckle_01_geo.rp" "finger_04_knuckle_01_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_04_knuckle_01_geo.rpt" "finger_04_knuckle_01_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_04_knuckle_01_jnt.t" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_04_knuckle_01_jnt.rp" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_04_knuckle_01_jnt.rpt" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_04_knuckle_01_jnt.r" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_04_knuckle_01_jnt.ro" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_04_knuckle_01_jnt.s" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_04_knuckle_01_jnt.pm" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_04_knuckle_01_jnt.jo" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_04_knuckle_01_jnt.ssc" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_04_knuckle_01_jnt.is" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_04_knuckle_01_geo_parentConstraint1.w0" "finger_04_knuckle_01_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_05_knuckle_01_geo_parentConstraint1.ctx" "finger_05_knuckle_01_geo.tx"
+		;
+connectAttr "finger_05_knuckle_01_geo_parentConstraint1.cty" "finger_05_knuckle_01_geo.ty"
+		;
+connectAttr "finger_05_knuckle_01_geo_parentConstraint1.ctz" "finger_05_knuckle_01_geo.tz"
+		;
+connectAttr "finger_05_knuckle_01_geo_parentConstraint1.crx" "finger_05_knuckle_01_geo.rx"
+		;
+connectAttr "finger_05_knuckle_01_geo_parentConstraint1.cry" "finger_05_knuckle_01_geo.ry"
+		;
+connectAttr "finger_05_knuckle_01_geo_parentConstraint1.crz" "finger_05_knuckle_01_geo.rz"
+		;
 connectAttr "finger_05_knuckle_01_geoShapeOrig.w" "finger_05_knuckle_01_geoShape.i"
+		;
+connectAttr "finger_05_knuckle_02_geo_parentConstraint1.ctx" "finger_05_knuckle_02_geo.tx"
+		;
+connectAttr "finger_05_knuckle_02_geo_parentConstraint1.cty" "finger_05_knuckle_02_geo.ty"
+		;
+connectAttr "finger_05_knuckle_02_geo_parentConstraint1.ctz" "finger_05_knuckle_02_geo.tz"
+		;
+connectAttr "finger_05_knuckle_02_geo_parentConstraint1.crx" "finger_05_knuckle_02_geo.rx"
+		;
+connectAttr "finger_05_knuckle_02_geo_parentConstraint1.cry" "finger_05_knuckle_02_geo.ry"
+		;
+connectAttr "finger_05_knuckle_02_geo_parentConstraint1.crz" "finger_05_knuckle_02_geo.rz"
 		;
 connectAttr "finger_05_knuckle_02_geoShapeOrig.w" "finger_05_knuckle_02_geoShape.i"
 		;
+connectAttr "finger_05_knuckle_03_geo_parentConstraint1.ctx" "finger_05_knuckle_03_geo.tx"
+		;
+connectAttr "finger_05_knuckle_03_geo_parentConstraint1.cty" "finger_05_knuckle_03_geo.ty"
+		;
+connectAttr "finger_05_knuckle_03_geo_parentConstraint1.ctz" "finger_05_knuckle_03_geo.tz"
+		;
+connectAttr "finger_05_knuckle_03_geo_parentConstraint1.crx" "finger_05_knuckle_03_geo.rx"
+		;
+connectAttr "finger_05_knuckle_03_geo_parentConstraint1.cry" "finger_05_knuckle_03_geo.ry"
+		;
+connectAttr "finger_05_knuckle_03_geo_parentConstraint1.crz" "finger_05_knuckle_03_geo.rz"
+		;
 connectAttr "finger_05_knuckle_03_geoShapeOrig.w" "finger_05_knuckle_03_geoShape.i"
+		;
+connectAttr "finger_05_knuckle_03_geo.ro" "finger_05_knuckle_03_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_05_knuckle_03_geo.pim" "finger_05_knuckle_03_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_05_knuckle_03_geo.rp" "finger_05_knuckle_03_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_05_knuckle_03_geo.rpt" "finger_05_knuckle_03_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_05_knuckle_03_jnt.t" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_05_knuckle_03_jnt.rp" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_05_knuckle_03_jnt.rpt" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_05_knuckle_03_jnt.r" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_05_knuckle_03_jnt.ro" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_05_knuckle_03_jnt.s" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_05_knuckle_03_jnt.pm" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_05_knuckle_03_jnt.jo" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_05_knuckle_03_jnt.ssc" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_05_knuckle_03_jnt.is" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_05_knuckle_03_geo_parentConstraint1.w0" "finger_05_knuckle_03_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_05_knuckle_02_geo.ro" "finger_05_knuckle_02_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_05_knuckle_02_geo.pim" "finger_05_knuckle_02_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_05_knuckle_02_geo.rp" "finger_05_knuckle_02_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_05_knuckle_02_geo.rpt" "finger_05_knuckle_02_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_05_knuckle_02_jnt.t" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_05_knuckle_02_jnt.rp" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_05_knuckle_02_jnt.rpt" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_05_knuckle_02_jnt.r" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_05_knuckle_02_jnt.ro" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_05_knuckle_02_jnt.s" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_05_knuckle_02_jnt.pm" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_05_knuckle_02_jnt.jo" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_05_knuckle_02_jnt.ssc" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_05_knuckle_02_jnt.is" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_05_knuckle_02_geo_parentConstraint1.w0" "finger_05_knuckle_02_geo_parentConstraint1.tg[0].tw"
+		;
+connectAttr "finger_05_knuckle_01_geo.ro" "finger_05_knuckle_01_geo_parentConstraint1.cro"
+		;
+connectAttr "finger_05_knuckle_01_geo.pim" "finger_05_knuckle_01_geo_parentConstraint1.cpim"
+		;
+connectAttr "finger_05_knuckle_01_geo.rp" "finger_05_knuckle_01_geo_parentConstraint1.crp"
+		;
+connectAttr "finger_05_knuckle_01_geo.rpt" "finger_05_knuckle_01_geo_parentConstraint1.crt"
+		;
+connectAttr "finger_05_knuckle_01_jnt.t" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tt"
+		;
+connectAttr "finger_05_knuckle_01_jnt.rp" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].trp"
+		;
+connectAttr "finger_05_knuckle_01_jnt.rpt" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "finger_05_knuckle_01_jnt.r" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "finger_05_knuckle_01_jnt.ro" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "finger_05_knuckle_01_jnt.s" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "finger_05_knuckle_01_jnt.pm" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "finger_05_knuckle_01_jnt.jo" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "finger_05_knuckle_01_jnt.ssc" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "finger_05_knuckle_01_jnt.is" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tis"
+		;
+connectAttr "finger_05_knuckle_01_geo_parentConstraint1.w0" "finger_05_knuckle_01_geo_parentConstraint1.tg[0].tw"
 		;
 connectAttr "finger_01_knuckle_01_jnt.s" "finger_01_knuckle_02_jnt.is";
 connectAttr "finger_01_knuckle_02_jnt.s" "finger_01_knuckle_03_jnt.is";
