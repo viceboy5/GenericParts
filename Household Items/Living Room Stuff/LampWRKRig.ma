@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: LampWRKRig.ma
-//Last modified: Mon, Mar 20, 2023 08:20:47 PM
+//Last modified: Mon, Mar 20, 2023 08:21:37 PM
 //Codeset: 1252
 requires maya "2023";
 requires "stereoCamera" "10.0";
@@ -12,7 +12,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 23403)";
-fileInfo "UUID" "D49DF3B6-4E09-B1B2-367A-6C9CC3ECF7D4";
+fileInfo "UUID" "69CA4B58-4751-1A8F-78DE-61A282738323";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "BD2591F8-4CE5-673A-D435-2297E11558CE";
@@ -80,7 +80,11 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode transform -n "Geometry";
+createNode transform -n "Lamp";
+	rename -uid "2C4BBFC7-41CF-5666-A4FB-EAB637D8AC70";
+	setAttr ".rp" -type "double3" 0 15.361626137332703 -1.5508796526283426 ;
+	setAttr ".sp" -type "double3" 0 15.361626137332703 -1.5508796526283426 ;
+createNode transform -n "Geometry" -p "Lamp";
 	rename -uid "5DD77AF9-4B04-A6B3-D882-8892CBB11F57";
 	setAttr ".rp" -type "double3" 0 13.270838737487793 -0.21692705154418945 ;
 	setAttr ".sp" -type "double3" 0 13.270838737487793 -0.21692705154418945 ;
@@ -2114,7 +2118,7 @@ createNode mesh -n "head_geoShapeOrig" -p "lamp_model:head_geo";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-createNode transform -n "Skeleton";
+createNode transform -n "Skeleton" -p "Lamp";
 	rename -uid "336260FD-4AAE-667A-9063-34855FA7F437";
 	setAttr ".rp" -type "double3" -2.6645352591003757e-15 13.116578112450497 -0.0116424115448579 ;
 	setAttr ".sp" -type "double3" -2.6645352591003757e-15 13.116578112450497 -0.0116424115448579 ;
@@ -2133,10 +2137,6 @@ createNode joint -n "Transform_Jnt" -p "ROOT_Jnt";
 	setAttr ".radi" 2;
 createNode joint -n "COG_Jnt" -p "Transform_Jnt";
 	rename -uid "8136B441-4A57-FEF4-BE54-6391EF8FDCEB";
-	setAttr ".t" -type "double3" 0 0 0 ;
-	setAttr -av ".tx";
-	setAttr -av ".ty";
-	setAttr -av ".tz";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".dla" yes;
@@ -2380,7 +2380,7 @@ createNode scaleConstraint -n "Transform_Jnt_scaleConstraint1" -p "Transform_Jnt
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
-createNode transform -n "Controls";
+createNode transform -n "Controls" -p "Lamp";
 	rename -uid "D409197F-4849-BCDA-5C0E-6285E1FEC8AF";
 	setAttr ".rp" -type "double3" 0 16.485746939878819 -1.5508796526283426 ;
 	setAttr ".sp" -type "double3" 0 16.485746939878819 -1.5508796526283426 ;
