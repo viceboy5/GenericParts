@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: Smarties.ma
-//Last modified: Thu, Mar 23, 2023 05:47:08 PM
+//Last modified: Thu, Mar 23, 2023 09:03:40 PM
 //Codeset: 1252
 requires maya "2023";
 requires "stereoCamera" "10.0";
@@ -12,7 +12,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 23419)";
-fileInfo "UUID" "6232B5D9-4D30-9648-79A0-E8A94E9F40AF";
+fileInfo "UUID" "2305957C-4513-63CD-B6F1-ACB22ED5D92A";
 createNode transform -n "Smarty1";
 	rename -uid "DC5CFEB0-4CB8-C039-567A-2D9E399680C0";
 	setAttr ".t" -type "double3" 6.8993983470151861 31.324417761208327 0 ;
@@ -47,7 +47,7 @@ createNode mesh -n "Smarty1Shape" -p "Smarty1";
 	setAttr ".gtag[8].gtagcmp" -type "componentList" 17 "f[40:59]" "f[140:159]" "f[240:259]" "f[340:359]" "f[440:459]" "f[540:559]" "f[640:659]" "f[740:759]" "f[840:859]" "f[940:959]" "f[1040:1059]" "f[1140:1159]" "f[1240:1259]" "f[1340:1359]" "f[1440:1459]" "f[1480:1499]" "f[1520:1539]";
 	setAttr ".gtag[9].gtagnm" -type "string" "topRing";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 15 "e[20:39]" "e[200:219]" "e[380:399]" "e[560:579]" "e[740:759]" "e[920:939]" "e[1100:1119]" "e[1280:1299]" "e[1460:1479]" "e[1640:1659]" "e[1820:1839]" "e[2000:2019]" "e[2180:2199]" "e[2360:2379]" "e[2540:2559]";
-	setAttr ".pv" -type "double2" 0.5 0.5 ;
+	setAttr ".pv" -type "double2" 0.51109683513641357 0.15624997764825821 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 1928 ".uvst[0].uvsp";
 	setAttr ".uvst[0].uvsp[0:249]" -type "float2" 0.64860266 0.10796607 0.62640899
@@ -473,9 +473,31 @@ createNode mesh -n "Smarty1Shape" -p "Smarty1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 2 ".pt";
-	setAttr ".pt[1230]" -type "float3" 0 0.096912399 0 ;
-	setAttr ".pt[1251]" -type "float3" 0 -0.096912406 0 ;
+	setAttr -s 24 ".pt";
+	setAttr ".pt[1228]" -type "float3" -0.014223994 0 0.0081507219 ;
+	setAttr ".pt[1229]" -type "float3" -0.022236226 0 0.020299941 ;
+	setAttr ".pt[1230]" -type "float3" 0 0.1100878 0 ;
+	setAttr ".pt[1232]" -type "float3" -0.0043308339 0 0.013328772 ;
+	setAttr ".pt[1234]" -type "float3" 0.0043308339 0 0.013328772 ;
+	setAttr ".pt[1236]" -type "float3" 0.012657802 0 0.012038182 ;
+	setAttr ".pt[1238]" -type "float3" 0.014223994 0 0.0036450948 ;
+	setAttr ".pt[1240]" -type "float3" 0.013774022 0 -0.0082617598 ;
+	setAttr ".pt[1242]" -type "float3" 0.0048348489 0 -0.012038182 ;
+	setAttr ".pt[1244]" -type "float3" -0.0043308339 0 -0.013328772 ;
+	setAttr ".pt[1245]" -type "float3" -0.0089266822 0 -0.0081507219 ;
+	setAttr ".pt[1247]" -type "float3" -0.013774022 0 -0.0038981317 ;
+	setAttr ".pt[1249]" -type "float3" -0.0077467207 -4.4408921e-16 0.004319333 ;
+	setAttr ".pt[1251]" -type "float3" 0 -0.11008782 0 ;
+	setAttr ".pt[1252]" -type "float3" -0.012838199 -6.6613381e-16 0.011934752 ;
+	setAttr ".pt[1255]" -type "float3" 0.0016640265 -6.6613381e-16 0.014231075 ;
+	setAttr ".pt[1257]" -type "float3" 0.026897889 -1.7763568e-15 0.020545145 ;
+	setAttr ".pt[1259]" -type "float3" 0.012838199 -6.6613381e-16 -0.0011480871 ;
+	setAttr ".pt[1260]" -type "float3" 0.02880365 -1.3322676e-15 -0.0045620697 ;
+	setAttr ".pt[1262]" -type "float3" 0.006171837 -6.6613381e-16 -0.014231075 ;
+	setAttr ".pt[1263]" -type "float3" 0.0033453805 -4.4408921e-16 -0.0067727691 ;
+	setAttr ".pt[1265]" -type "float3" -0.0020948921 -4.4408921e-16 -0.0067727691 ;
+	setAttr ".pt[1267]" -type "float3" -0.019151166 -1.3322676e-15 -0.013772372 ;
+	setAttr ".pt[1269]" -type "float3" -0.02880365 -1.3322676e-15 0.0045620697 ;
 	setAttr -s 1270 ".vt";
 	setAttr ".vt[0:165]"  -11.42628098 0.31805769 8.50086784 -11.43591499 0.31805769 8.4819603
 		 -11.45092106 0.31805769 8.46695423 -11.46982861 0.31805769 8.45732021 -11.49078846 0.31805769 8.45400047
@@ -4346,7 +4368,7 @@ createNode lambert -n "lambert2";
 	rename -uid "57F55E2D-4B4E-BAFB-18EE-94A91960426E";
 	setAttr ".it" -type "float3" 0.77272725 0.77272725 0.77272725 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "5D88ED17-4BC5-D8F8-E1D2-9B806FF60B5B";
+	rename -uid "14758B69-425D-EEF1-7AB7-0F8658F5F46B";
 	setAttr -s 6 ".lnk";
 	setAttr -s 6 ".slnk";
 select -ne :time1;
