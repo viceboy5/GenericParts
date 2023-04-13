@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: RoverWRig.ma
-//Last modified: Wed, Apr 12, 2023 09:08:28 PM
+//Last modified: Wed, Apr 12, 2023 09:08:55 PM
 //Codeset: 1252
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.2.1.1";
@@ -10,18 +10,18 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 23430)";
-fileInfo "UUID" "39CB8039-4470-0762-AD0D-12ADB80B9B37";
+fileInfo "UUID" "2C4E0FAC-4BAE-B1DB-EDED-508A032B3BF1";
 createNode transform -s -n "persp";
 	rename -uid "E7AA7AE7-4061-FC68-C22A-A6A921C364E0";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -690.44716836836415 85.946282123728139 119.82973121772613 ;
-	setAttr ".r" -type "double3" -4.2000000000019773 -2605.2000000004159 -9.5023800658542326e-15 ;
+	setAttr ".t" -type "double3" 410.51617708009405 157.48326126282856 346.3826231413783 ;
+	setAttr ".r" -type "double3" -13.800000000000598 -2464.7999999999001 0 ;
 	setAttr ".rpt" -type "double3" 3.7371735090185475e-17 -1.5815973754368923e-17 -4.6421204425286681e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "F19F6BED-4BEF-06F8-C856-738F207E06E2";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 695.75667960274461;
+	setAttr ".coi" 513.5252104094493;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -48751,6 +48751,7 @@ createNode groupId -n "groupId40";
 	setAttr ".ihi" 0;
 createNode displayLayer -n "Skeleton_Layer";
 	rename -uid "47CB9C66-4F0C-CDDC-0DD2-D2A8F015C479";
+	setAttr ".v" no;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 3;
 createNode makeNurbCircle -n "makeNurbCircle1";
